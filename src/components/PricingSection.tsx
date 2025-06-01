@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { PricingHeader } from './PricingHeader';
 import { PricingCard } from './PricingCard';
@@ -34,18 +35,20 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
       <div className="flex flex-col items-center justify-center px-5">
         <PricingHeader title={title} subtitle={subtitle} />
         
-        <div className="flex flex-wrap justify-center gap-[30px] max-w-[1800px] max-md:gap-5 max-sm:gap-[15px]">
-          {plans.map((plan, index) => (
-            <PricingCard
-              key={index}
-              planName={plan.planName}
-              price={plan.price}
-              period={plan.period}
-              features={plan.features}
-              isHighlighted={plan.isHighlighted}
-              onGetPlan={() => handlePlanSelect(plan.planName)}
-            />
-          ))}
+        <div className="w-full max-w-[1800px] overflow-x-auto">
+          <div className="flex gap-[30px] min-w-max px-5 max-md:gap-5 max-sm:gap-[15px]">
+            {plans.map((plan, index) => (
+              <PricingCard
+                key={index}
+                planName={plan.planName}
+                price={plan.price}
+                period={plan.period}
+                features={plan.features}
+                isHighlighted={plan.isHighlighted}
+                onGetPlan={() => handlePlanSelect(plan.planName)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
